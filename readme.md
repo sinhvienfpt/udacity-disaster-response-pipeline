@@ -15,7 +15,9 @@ Then go to http://0.0.0.0:3001/ to try it.
 
 ## Screenshots
 1. Main page
-![image]()
+![image](https://github.com/sinhvienfpt/udacity-disaster-response-pipeline/blob/main/images/header.png)
+![image](https://github.com/sinhvienfpt/udacity-disaster-response-pipeline/blob/main/images/tailer.png)
+
 
 3. Result after clicking **Classify Message**
-![image]()
+![image](https://github.com/sinhvienfpt/udacity-disaster-response-pipeline/blob/main/images/run.png)
