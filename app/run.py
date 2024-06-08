@@ -34,7 +34,7 @@ pl3 = pd.read_csv('../data/plot/corr.csv')
 
 
 # load model 
-model = joblib.load("../models/classifier.pkl")
+model = joblib.load("../models/model.pkl")
 
 # index webpage visuals and receives user input text for model
 @app.route('/')
