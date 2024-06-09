@@ -10,7 +10,7 @@ from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
 
 import joblib
-from sqlalchemy import create_engine
+# from sqlalchemy import create_engine
 
 app = Flask(__name__)
 
@@ -25,13 +25,15 @@ def tokenize(text):
 
     return clean_tokens
 
-# load data
-engine = create_engine('sqlite:///../data/DB_LAB04.db')
-df = pd.read_sql_table('disaster_messages', engine)
+## load data
+# connection_string = "Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverxx.database.windows.net,1433;Database=DB_LAB04;Uid=tendangnhap;Pwd=Matkhau@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+# engine = create_engine(f"mssql+pyodbc:///?odbc_connect={connection_string}")
+# df = pd.read_sql_table('disaster_messages', engine)
 pl1 = pd.read_csv('../data/plot/genre_counts.csv')
 pl2 = pd.read_csv('../data/plot/top5cates.csv')
 pl3 = pd.read_csv('../data/plot/corr.csv')
 
+COLUMNS = ['related', 'request', 'offer', 'aid_related', 'medical_help', 'medical_products', 'search_and_rescue', 'security', 'military', 'child_alone', 'water', 'food', 'shelter', 'clothing', 'money', 'missing_people', 'refugees', 'death', 'other_aid', 'infrastructure_related', 'transport', 'buildings', 'electricity', 'tools', 'hospitals', 'shops', 'aid_centers', 'other_infrastructure', 'weather_related', 'floods', 'storm', 'fire', 'earthquake', 'cold', 'other_weather', 'direct_report']
 
 # load model 
 model = joblib.load("../models/model.pkl")
@@ -42,7 +44,6 @@ model = joblib.load("../models/model.pkl")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = pl1['message']
     genre_names = pl1['genre']
     
@@ -50,7 +51,6 @@ def index():
     category_counts = pl2['counts']
     
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
     graphs = [
         # plot for genre
         {
@@ -118,7 +118,7 @@ def go():
     
     # use model to predict classification for query
     classification_labels = model.predict([query])[0]
-    classification_results = dict(zip(df.columns[4:], classification_labels))
+    classification_results = dict(zip(COLUMNS, classification_labels))
 
     # This will render the go.html Please see that file. 
     return render_template(
