@@ -26,7 +26,9 @@ def tokenize(text):
     return clean_tokens
 
 ## load data
-# connection_string = "Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverxx.database.windows.net,1433;Database=DB_LAB04;Uid=tendangnhap;Pwd=Matkhau@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+# with open('../password.txt') as f:
+#     password = f.read().strip()
+# connection_string = "Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverxx.database.windows.net,1433;Database=DB_LAB04;Uid=tendangnhap;"+f"Pwd={password}"+";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
 # engine = create_engine(f"mssql+pyodbc:///?odbc_connect={connection_string}")
 # df = pd.read_sql_table('disaster_messages', engine)
 pl1 = pd.read_csv('../data/plot/genre_counts.csv')
