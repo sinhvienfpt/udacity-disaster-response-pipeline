@@ -12,6 +12,8 @@ python run.py
 ```
 Then go to http://0.0.0.0:3001/ to try it.
 
+## Evaluate 
+![Screenshot 2024-06-16 193312](https://github.com/huyduong20102004/udacity-disaster-response-pipeline/assets/170107916/2b5eb8cd-6e62-4b89-b822-d6686f147495)
 
 ## Screenshots
 1. Main page
