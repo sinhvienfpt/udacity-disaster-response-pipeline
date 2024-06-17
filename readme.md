@@ -1,10 +1,9 @@
 # Disaster Response Pipeline Project
 
-## Introduction 
+## 1. Introduction 
 Develop a pipeline and construct a basic web application to run the ML model.
 
-## How to run?
-In the terminal, run these codes: 
+**How to run?** In the terminal, run these codes: 
 ```Shell
 git clone https://github.com/sinhvienfpt/udacity-disaster-response-pipeline.git
 cd app 
